@@ -1,0 +1,7 @@
+<div class="new-task">
+  <mat-form-field>
+    <mat-label>Новая задача</mat-label>
+    <input matInput [value]="taskValue" (change)="onChange($event)">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="onSave()">Добавить</button>
+</div>

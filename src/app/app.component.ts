@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'todo-list';
+  taskValue!: string;
+
+  onClick() {
+    console.log(this.taskValue);
+  }
 }
