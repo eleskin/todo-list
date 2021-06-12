@@ -1,9 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-
-interface Task {
-  title: string;
-  isComplete: boolean;
-}
+import { ITask } from '../ITask';
 
 @Component({
   selector: 'app-tasks-list',
@@ -11,11 +7,16 @@ interface Task {
   styleUrls: ['./tasks-list.component.css']
 })
 export class TasksListComponent implements OnInit {
-  @Input() tasks!: Array<Task>;
+  @Input() tasks!: Array<ITask>;
+  @Input() removeTask!: any;
+  @Input() changeTask!: any;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onClick(id: string, index:  number): void {
+    this.removeTask(id, index);
+  }
 }

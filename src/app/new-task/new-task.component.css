@@ -1,5 +1,9 @@
 .new-task {
   width: 100%;
+}
+
+.new-task form {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;

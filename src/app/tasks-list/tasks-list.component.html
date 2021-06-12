@@ -1,15 +1,16 @@
 <div class="tasks-list">
-  <mat-card class="tasks-list__card" *ngFor="let task of tasks">
-    <!--    <mat-checkbox class="example-margin">-->
-    {{task.title}}
-    <!--    </mat-checkbox>-->
+  <mat-card class="tasks-list__card" *ngFor="let task of tasks; index as index;">
+    <mat-checkbox
+      class="example-margin"
+      [checked]="task.isComplete"
+      (change)="changeTask(task._id, task.title, $event.checked, index)"
+    >
+      <span [style]="{textDecoration: task.isComplete ? 'line-through' : 'none'}">{{task.title}}</span>
+    </mat-checkbox>
     <div class="tasks-list__buttons">
-      <!--      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">-->
-      <!--        <mat-icon>more_vert</mat-icon>-->
-      <!--      </button>-->
-      <!--      <button mat-icon-button>-->
-      <!--        <mat-icon>delete</mat-icon>-->
-      <!--      </button>-->
+      <button mat-icon-button (click)="onClick(task._id, index)">
+        <mat-icon color="warn">delete</mat-icon>
+      </button>
     </div>
   </mat-card>
 </div>

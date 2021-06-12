@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import axios from 'axios';
 
-interface Task {
-  title: string;
-  isComplete: boolean;
-}
+import { ITask } from './ITask';
 
 @Component({
   selector: 'app-root',
@@ -14,14 +11,38 @@ interface Task {
 export class AppComponent {
   title = 'todo-list';
 
-  tasks: Array<Task> = [];
+  tasks: Array<ITask> = [];
 
   constructor() {
-    this.onAddTask = this.onAddTask.bind(this);
+    this.addTask = this.addTask.bind(this);
+    this.removeTask = this.removeTask.bind(this);
   }
 
-  onAddTask(task: Task): void {
+  addTask(task: ITask): void {
     this.tasks.unshift(task);
+  }
+
+  changeTask(id: string, title: string, isComplete: boolean, index: number): void {
+    axios
+      .patch(`http://localhost:3000/tasks/${id}`, {
+        title: title,
+        isComplete: isComplete
+      })
+      .then(response => {
+        if (response.status === 200) {
+          this.tasks[index].isComplete = response.data.isComplete;
+        }
+      });
+  }
+
+  removeTask(id: string, index: number): void {
+    axios
+      .delete(`http://localhost:3000/tasks/${id}`)
+      .then(response => {
+        if (response.status === 200) {
+          this.tasks.splice(index, 1);
+        }
+      });
   }
 
   ngOnInit(): void {

@@ -3,8 +3,8 @@
 </mat-toolbar>
 
 <div class="content" role="main">
-  <app-new-task [onAddTask]="onAddTask"></app-new-task>
-  <app-tasks-list [tasks]="tasks"></app-tasks-list>
+  <app-new-task [addTask]="addTask"></app-new-task>
+  <app-tasks-list [tasks]="tasks" [removeTask]="removeTask" [changeTask]="changeTask"></app-tasks-list>
 </div>
 
 <router-outlet></router-outlet>

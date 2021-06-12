@@ -7,7 +7,7 @@ import axios from 'axios';
   styleUrls: ['./new-task.component.css']
 })
 export class NewTaskComponent implements OnInit {
-  @Input() onAddTask!: any;
+  @Input() addTask!: any;
 
   taskTitle: string = '';
 
@@ -21,7 +21,8 @@ export class NewTaskComponent implements OnInit {
     this.taskTitle = event.target.value;
   }
 
-  onSave() {
+  onSave(event: any) {
+    event.preventDefault();
     if (this.taskTitle) {
       axios
         .post('http://localhost:3000/tasks', {
@@ -29,7 +30,7 @@ export class NewTaskComponent implements OnInit {
           isComplete: false
         })
         .then(response => {
-          this.onAddTask(response.data);
+          this.addTask(response.data);
           this.taskTitle = '';
         });
     }
