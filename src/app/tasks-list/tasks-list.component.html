@@ -1,7 +1,7 @@
 <div class="tasks-list">
-  <mat-card class="tasks-list__card">
+  <mat-card class="tasks-list__card" *ngFor="let task of tasks">
     <!--    <mat-checkbox class="example-margin">-->
-    task name
+    {{task.title}}
     <!--    </mat-checkbox>-->
     <div class="tasks-list__buttons">
       <!--      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">-->

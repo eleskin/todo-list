@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+
+interface Task {
+  title: string;
+  isComplete: boolean;
+}
 
 @Component({
   selector: 'app-tasks-list',
@@ -6,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tasks-list.component.css']
 })
 export class TasksListComponent implements OnInit {
+  @Input() tasks!: Array<Task>;
 
   constructor() { }
 

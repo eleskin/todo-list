@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-new-task',
@@ -6,21 +7,31 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./new-task.component.css']
 })
 export class NewTaskComponent implements OnInit {
+  @Input() onAddTask!: any;
 
-  taskValue: string = '';
+  taskTitle: string = '';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
   onChange(event: any) {
-    this.taskValue = event.target.value;
+    this.taskTitle = event.target.value;
   }
 
   onSave() {
-    if (this.taskValue) {
-      console.log(this.taskValue);
+    if (this.taskTitle) {
+      axios
+        .post('http://localhost:3000/tasks', {
+          title: this.taskTitle,
+          isComplete: false
+        })
+        .then(response => {
+          this.onAddTask(response.data);
+          this.taskTitle = '';
+        });
     }
   }
 }
