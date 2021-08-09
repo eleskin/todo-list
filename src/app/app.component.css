@@ -1,6 +1,5 @@
-.content {
-  margin-top: 30px;
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 0 1fr;
 }

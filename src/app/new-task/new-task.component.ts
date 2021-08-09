@@ -28,11 +28,16 @@ export class NewTaskComponent implements OnInit {
         .post('http://localhost:3000/tasks', {
           title: this.taskTitle,
           isComplete: false
+        }, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
         })
         .then(response => {
           this.addTask(response.data);
           this.taskTitle = '';
-        });
+        })
+        .catch(() => localStorage.removeItem('token'));
     }
   }
 }

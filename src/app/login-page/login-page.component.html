@@ -1,0 +1,31 @@
+<div class="login">
+  <mat-card class="login__card">
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-subtitle>Enter your email and password, if you are not registered, we will register you right now.</mat-card-subtitle>
+    <mat-card-content>
+      <form class="login__form" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Your email</mat-label>
+          <input
+            matInput
+            type="email"
+            name="email"
+            required
+            [(ngModel)]="emailField"
+          >
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Your password</mat-label>
+          <input
+            matInput
+            type="password"
+            name="password"
+            required
+            [(ngModel)]="passwordField"
+          >
+        </mat-form-field>
+        <button mat-flat-button color="primary">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

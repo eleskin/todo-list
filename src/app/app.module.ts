@@ -15,12 +15,17 @@ import { TasksListComponent } from './tasks-list/tasks-list.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
+import { HomePageComponent } from './home-page/home-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewTaskComponent,
-    TasksListComponent
+    TasksListComponent,
+    HomePageComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
