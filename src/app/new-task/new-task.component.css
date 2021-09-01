@@ -9,3 +9,10 @@
   align-items: center;
   grid-column-gap: 30px;
 }
+
+
+@media (max-width: 560px) {
+  .new-task form {
+    grid-column-gap: 10px;
+  }
+}

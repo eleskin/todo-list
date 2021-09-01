@@ -4,3 +4,21 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+@media (max-width: 720px) {
+  .home {
+    width: 80%;
+  }
+}
+
+@media (max-width: 560px) {
+  .home {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    width: 95%;
+  }
+}

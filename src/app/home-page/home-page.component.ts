@@ -22,7 +22,7 @@ export class HomePageComponent implements OnInit {
 
   changeTask(id: string, title: string, isComplete: boolean, index: number): void {
     axios
-      .patch(`http://localhost:3000/tasks/${id}`, {
+      .patch(`https://warm-fjord-88209.herokuapp.com/tasks/${id}`, {
         title: title,
         isComplete: isComplete
       }, {
@@ -40,7 +40,7 @@ export class HomePageComponent implements OnInit {
 
   removeTask(id: string, index: number): void {
     axios
-      .delete(`http://localhost:3000/tasks/${id}`, {
+      .delete(`https://warm-fjord-88209.herokuapp.com/tasks/${id}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -56,7 +56,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     console.log();
     axios
-      .get('http://localhost:3000/tasks', {
+      .get('https://warm-fjord-88209.herokuapp.com/tasks', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

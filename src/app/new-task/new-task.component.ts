@@ -25,7 +25,7 @@ export class NewTaskComponent implements OnInit {
     event.preventDefault();
     if (this.taskTitle) {
       axios
-        .post('http://localhost:3000/tasks', {
+        .post('https://warm-fjord-88209.herokuapp.com/tasks', {
           title: this.taskTitle,
           isComplete: false
         }, {

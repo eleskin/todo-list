@@ -11,7 +11,7 @@ export class AuthService {
 
   isLoggedIn() {
     return axios
-      .get('http://localhost:3000/users', {
+      .get('https://warm-fjord-88209.herokuapp.com/users', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

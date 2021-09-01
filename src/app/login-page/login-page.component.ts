@@ -20,7 +20,7 @@ export class LoginPageComponent implements OnInit {
   onSubmit() {
     if (this.emailField && this.passwordField) {
       axios
-        .post('http://localhost:3000/users', {
+        .post('https://warm-fjord-88209.herokuapp.com/users', {
           email: this.emailField,
           password: this.passwordField,
         })
