@@ -1,9 +1,9 @@
 <div class="new-task">
   <form (submit)="onSave($event)">
     <mat-form-field>
-      <mat-label>Новая задача</mat-label>
+      <mat-label>New task</mat-label>
       <input matInput [value]="taskTitle" (change)="onChange($event)">
     </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Добавить</button>
+    <button mat-raised-button color="primary" type="submit">Add task</button>
   </form>
 </div>
